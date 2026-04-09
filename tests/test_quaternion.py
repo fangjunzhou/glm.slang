@@ -3,9 +3,9 @@ import logging
 import slangpy as spy
 from pyglm import glm
 
-from math_slang import SHADER_PATH as MATH_SHADER_PATH
-from math_slang import load_module_from_file as load_math_module_from_file
-from math_slang.conversion import to_slang, from_slang
+from glm_slang import SHADER_PATH as MATH_SHADER_PATH
+from glm_slang import load_module_from_file as load_math_module_from_file
+from glm_slang.conversion import to_slang, from_slang
 
 from common import _assert_quat_close, _assert_vec3_close, _assert_mat3_close
 
@@ -45,7 +45,7 @@ def test_identity():
 def test_mul():
     a = glm.normalize(glm.quat(1.0, 2.0, 3.0, 4.0))
     b = glm.normalize(glm.quat(5.0, 6.0, 7.0, 8.0))
-    q_expected = glm.mul(a, b)
+    q_expected = a * b
     logger.info(f"Testing multiplication: a={a}, b={b}, expected={q_expected}")
     a_slang = to_slang(a)
     b_slang = to_slang(b)

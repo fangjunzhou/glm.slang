@@ -3,9 +3,9 @@ import logging
 import slangpy as spy
 from pyglm import glm
 
-from math_slang import SHADER_PATH as MATH_SHADER_PATH
-from math_slang import load_module_from_file as load_math_module_from_file
-from math_slang.conversion import to_slang, from_slang
+from glm_slang import SHADER_PATH as MATH_SHADER_PATH
+from glm_slang import load_module_from_file as load_math_module_from_file
+from glm_slang.conversion import to_slang, from_slang
 
 from common import (
     _assert_mat2_close,

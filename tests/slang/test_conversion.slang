@@ -1,4 +1,4 @@
-import math;
+import glm;
 
 float2 test_float2(float2 v)
 {
@@ -30,7 +30,7 @@ float4x4 test_float4x4(float4x4 m)
     return m;
 }
 
-math.quat.quat test_quaternion(math.quat.quat q)
+glm.quat.quat test_quaternion(glm.quat.quat q)
 {
     return q;
 }

@@ -1,9 +1,9 @@
-implementing math;
+implementing glm;
 
-namespace math.quat
+namespace glm.quat
 {
 
-// Quaternions in math.slang are defined as float4(x, y, z, w).
+// Quaternions in glm.slang are defined as float4(x, y, z, w).
 public typealias quat = float4;
 
 // Returns the identity quaternion (1, 0, 0, 0).

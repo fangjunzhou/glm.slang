@@ -1,3 +1,3 @@
-module math;
+module glm;
 
 __include quaternion;

@@ -1,5 +1,5 @@
 {
-  description = "Math utils for Slang";
+  description = "GLM math utils for Slang";
 
   inputs =
     {

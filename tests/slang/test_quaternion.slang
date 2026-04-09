@@ -1,41 +1,41 @@
-import math;
+import glm;
 
-math.quat.quat test_identity()
+glm.quat.quat test_identity()
 {
-    return math.quat.identity();
+    return glm.quat.identity();
 }
 
-math.quat.quat test_mul(math.quat.quat a, math.quat.quat b)
+glm.quat.quat test_mul(glm.quat.quat a, glm.quat.quat b)
 {
-    return math.quat.mul(a, b);
+    return glm.quat.mul(a, b);
 }
 
-math.quat.quat test_conj(math.quat.quat q)
+glm.quat.quat test_conj(glm.quat.quat q)
 {
-    return math.quat.conj(q);
+    return glm.quat.conj(q);
 }
 
-math.quat.quat test_inv(math.quat.quat q)
+glm.quat.quat test_inv(glm.quat.quat q)
 {
-    return math.quat.inv(q);
+    return glm.quat.inv(q);
 }
 
-math.quat.quat test_from_axis_angle(float3 axisAngle)
+glm.quat.quat test_from_axis_angle(float3 axisAngle)
 {
-    return math.quat.fromAxisAngle(axisAngle);
+    return glm.quat.fromAxisAngle(axisAngle);
 }
 
-float3 test_as_axis_angle(math.quat.quat q)
+float3 test_as_axis_angle(glm.quat.quat q)
 {
-    return math.quat.asAxisAngle(q);
+    return glm.quat.asAxisAngle(q);
 }
 
-float3 test_rotate(math.quat.quat q, float3 v)
+float3 test_rotate(glm.quat.quat q, float3 v)
 {
-    return math.quat.rotate(q, v);
+    return glm.quat.rotate(q, v);
 }
 
-float3x3 test_as_mat3(math.quat.quat q)
+float3x3 test_as_mat3(glm.quat.quat q)
 {
-    return math.quat.asMat3(q);
+    return glm.quat.asMat3(q);
 }

@@ -1,3 +1,3 @@
-# math.slang
+# glm.slang
 
-Math utils for Slang
+GLM math utils for Slang
