@@ -5,6 +5,8 @@ description = "Math utils for Slang"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "pyglm>=2.8.3",
+    "pytest>=9.0.3",
     "slangpy>=0.40.1",
 ]
 
