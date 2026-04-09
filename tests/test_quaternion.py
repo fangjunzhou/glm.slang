@@ -5,6 +5,7 @@ from pyglm import glm
 
 from math_slang import SHADER_PATH as MATH_SHADER_PATH
 from math_slang import load_module_from_file as load_math_module_from_file
+from math_slang.quaternion import to_slang, from_slang
 
 logger = logging.getLogger(__name__)
 
@@ -34,8 +35,8 @@ logger.info(f"Modules loaded: {math_module}, {test_module}")
 # Test conversion between glm.quat and math.quat.quat
 def test_conversion():
     q_py = glm.quat(1.0, 2.0, 3.0, 4.0)
-    q_slang = test_module.test_conversion(list(q_py))
-    q_py_converted = glm.quat(*q_slang)
+    q_slang = test_module.test_conversion(to_slang(q_py))
+    q_py_converted = from_slang(q_slang)
     assert q_py == q_py_converted, f"Expected {q_py}, got {q_py_converted}"
 
 
