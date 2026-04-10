@@ -2,7 +2,6 @@
 name = "glm-slang"
 version = "0.1.0"
 description = "Math utils for Slang"
-readme = "README.md"
 requires-python = ">=3.12"
 dependencies = ["pyglm>=2.8.3", "slangpy>=0.40.1", "spm"]
 
