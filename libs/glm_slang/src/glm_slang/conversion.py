@@ -52,10 +52,10 @@ def to_slang(v: glm.mat4) -> spy.math.float4x4:
 
 
 @overload
-def to_slang(q: glm.quat) -> spy.math.float4:
+def to_slang(v: glm.quat) -> spy.math.float4:
     """Convert a glm.quat to a spy.math.float4 for use in Slang.
 
-    :param q: The quaternion in glm format.
+    :param v: The quaternion in glm format.
     :return: A spy.math.float4 representing the quaternion in Slang format (x, y, z, w).
     """
     ...
@@ -177,10 +177,10 @@ def from_slang(v: spy.math.float4, as_type: type[glm.vec4]) -> glm.vec4:
 
 
 @overload
-def from_slang(q: spy.math.float4, as_type: type[glm.quat] = glm.quat) -> glm.quat:
+def from_slang(v: spy.math.float4, as_type: type[glm.quat] = glm.quat) -> glm.quat:
     """Convert a spy.math.float4 representing a quaternion in Slang format to a glm.quat.
 
-    :param q: A spy.math.float4 where (x, y, z) are the vector part and w is the scalar part of the quaternion.
+    :param v: A spy.math.float4 where (x, y, z) are the vector part and w is the scalar part of the quaternion.
     :return: A glm.quat representing the same quaternion.
     """
     ...
@@ -214,25 +214,45 @@ def from_slang(
         if as_type is not None:
             raise TypeError("as_type is only valid for spy.math.float4 inputs")
         return glm.mat2(
-            glm.vec2(v[0][0], v[1][0]),
-            glm.vec2(v[0][1], v[1][1]),
+            v[0][0],
+            v[1][0],
+            v[0][1],
+            v[1][1],
         )
     if isinstance(v, spy.math.float3x3):
         if as_type is not None:
             raise TypeError("as_type is only valid for spy.math.float4 inputs")
         return glm.mat3(
-            glm.vec3(v[0][0], v[1][0], v[2][0]),
-            glm.vec3(v[0][1], v[1][1], v[2][1]),
-            glm.vec3(v[0][2], v[1][2], v[2][2]),
+            v[0][0],
+            v[1][0],
+            v[2][0],
+            v[0][1],
+            v[1][1],
+            v[2][1],
+            v[0][2],
+            v[1][2],
+            v[2][2],
         )
     if isinstance(v, spy.math.float4x4):
         if as_type is not None:
             raise TypeError("as_type is only valid for spy.math.float4 inputs")
         return glm.mat4(
-            glm.vec4(v[0][0], v[1][0], v[2][0], v[3][0]),
-            glm.vec4(v[0][1], v[1][1], v[2][1], v[3][1]),
-            glm.vec4(v[0][2], v[1][2], v[2][2], v[3][2]),
-            glm.vec4(v[0][3], v[1][3], v[2][3], v[3][3]),
+            v[0][0],
+            v[1][0],
+            v[2][0],
+            v[3][0],
+            v[0][1],
+            v[1][1],
+            v[2][1],
+            v[3][1],
+            v[0][2],
+            v[1][2],
+            v[2][2],
+            v[3][2],
+            v[0][3],
+            v[1][3],
+            v[2][3],
+            v[3][3],
         )
     if isinstance(v, spy.math.float4):
         if as_type is None or as_type is glm.quat:
