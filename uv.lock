@@ -82,7 +82,7 @@ dev = [
 requires-dist = [
     { name = "pyglm", specifier = ">=2.8.3" },
     { name = "slangpy", specifier = ">=0.40.1" },
-    { name = "spm-slang", editable = "external/spm.slang/libs/spm_slang" },
+    { name = "spm-slang", specifier = "==0.1.0" },
 ]
 
 [package.metadata.requires-dev]
@@ -370,19 +370,13 @@ wheels = [
 [[package]]
 name = "spm-slang"
 version = "0.1.0"
-source = { editable = "external/spm.slang/libs/spm_slang" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "slangpy" },
 ]
-
-[package.metadata]
-requires-dist = [{ name = "slangpy", specifier = ">=0.40.1" }]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "black", specifier = ">=26.3.1" },
-    { name = "build", specifier = ">=1.4.3" },
-    { name = "twine", specifier = ">=6.2.0" },
+sdist = { url = "https://files.pythonhosted.org/packages/5a/79/f0cad253e71325e14f8102507a22f7d3da263a8950b862ed470a9aaf0689/spm_slang-0.1.0.tar.gz", hash = "sha256:e846489cc3a1a828e1196d71e07e522f1b9a273566fe312469fbe74f2a0b7054", size = 3692, upload-time = "2026-04-12T23:31:45.081Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4c/ea/8c88b203f67574bff44a883d665be2872d54e1f3298340b0d3b80d2758ed/spm_slang-0.1.0-py3-none-any.whl", hash = "sha256:cd7f69346b64ccfe2c355ee4e0d80b6371c0652a57d432761bafc2ca969f62ed", size = 4697, upload-time = "2026-04-12T23:31:21.332Z" },
 ]
 
 [[package]]

@@ -15,7 +15,6 @@ members = ["libs/*", "tests/*"]
 [tool.uv.sources]
 glm-slang = { workspace = true }
 glm-slang-test = { workspace = true }
-spm-slang = { path = "external/spm.slang/libs/spm_slang", editable = true }
 
 [tool.pytest]
 minversion = "9.0"
