@@ -8,6 +8,6 @@ Slang data structures.
 :caption: Contents
 
 usage
-api
+api_reference
 developer-guide
 ```

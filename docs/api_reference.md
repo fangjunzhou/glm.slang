@@ -1,17 +1,19 @@
-API Reference
-=============
+# API Reference
 
-Package
--------
+## Package
 
+```{eval-rst}
 .. automodule:: glm_slang
    :members:
    :undoc-members:
    :show-inheritance:
+```
 
-Conversion helpers
-------------------
+## Conversion helpers
 
+```{eval-rst}
 .. automodule:: glm_slang.conversion
    :members:
    :undoc-members:
+   :show-inheritance:
+```

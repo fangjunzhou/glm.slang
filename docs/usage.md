@@ -1,30 +1,57 @@
 # Usage
 
+## Overview
+
+`glm.slang` provides Slang math helpers and Python conversion utilities for
+`pyglm` data structures. The Python helpers convert between `pyglm` vectors,
+matrices, quaternions and their `slangpy` counterparts, while the Slang module
+exposes quaternion math in `glm.quat`.
+
 ## Installation
 
-Use the workspace dependencies defined in `pyproject.toml` and install with
-`uv` or your preferred Python environment manager.
+TODO
 
-## Conversion helpers
+## Converting `pyglm` values
 
-Convert between `pyglm` and Slang math types with `glm_slang.conversion`.
+Use `glm_slang.conversion.to_slang` to convert `pyglm` values to `slangpy`
+math types, and `glm_slang.conversion.from_slang` to convert results back.
+Matrices are converted between glm's column-major layout and Slang's
+row-major layout.
 
 ```python
 from pyglm import glm
 from glm_slang.conversion import to_slang, from_slang
 
-v = glm.vec3(1.0, 2.0, 3.0)
+v = glm.vec3(1.0, -2.0, 3.0)
 v_slang = to_slang(v)
-v_roundtrip = from_slang(v_slang)
+v_round_trip = from_slang(v_slang)
 ```
 
-## Quaternion utilities
+`spy.math.float4` is ambiguous (vector or quaternion). Pass `as_type` when
+converting from Slang:
 
-The Slang module provides quaternion math helpers under `glm.quat`.
+```python
+from pyglm import glm
+from glm_slang.conversion import from_slang
 
-```slang
-import glm;
-
-glm.quat.quat q = glm.quat.fromAxisAngle(float3(0, 1, 0) * radians(90));
-float3 rotated = glm.quat.rotate(q, float3(1, 0, 0));
+vec4 = from_slang(v_slang_float4, as_type=glm.vec4)
+quat = from_slang(q_slang_float4, as_type=glm.quat)
 ```
+
+## Slang quaternion math
+
+The Slang module exposes quaternion helpers under `glm.quat` such as
+`identity`, `mul`, `conj`, `inv`, `fromAxisAngle`, `asAxisAngle`, `rotate`,
+and `asMat3`. Once the package is loaded via `SlangPackageManager`, you can
+call these functions through `slangpy` bindings.
+
+```python
+from spm_slang.package_manager import SlangPackageManager
+from glm_slang import GlmSlang
+
+manager = SlangPackageManager()
+module = manager.module_map[GlmSlang.name()]
+```
+
+Refer to the API reference for the full conversion surface and quaternion
+helpers.
