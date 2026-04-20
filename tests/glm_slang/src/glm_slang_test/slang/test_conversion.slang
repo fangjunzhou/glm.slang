@@ -35,3 +35,33 @@ public glm.quat.quat test_quaternion(glm.quat.quat q)
 {
     return q;
 }
+
+public int2 test_int2(int2 v)
+{
+    return v;
+}
+
+public int3 test_int3(int3 v)
+{
+    return v;
+}
+
+public int4 test_int4(int4 v)
+{
+    return v;
+}
+
+public uint2 test_uint2(uint2 v)
+{
+    return v;
+}
+
+public uint3 test_uint3(uint3 v)
+{
+    return v;
+}
+
+public uint4 test_uint4(uint4 v)
+{
+    return v;
+}

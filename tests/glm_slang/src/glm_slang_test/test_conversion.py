@@ -14,6 +14,12 @@ from .common import (
     _assert_vec2_close,
     _assert_vec3_close,
     _assert_vec4_close,
+    _assert_ivec2_equal,
+    _assert_ivec3_equal,
+    _assert_ivec4_equal,
+    _assert_uvec2_equal,
+    _assert_uvec3_equal,
+    _assert_uvec4_equal,
 )
 
 logger = logging.getLogger(__name__)
@@ -115,3 +121,57 @@ def test_float4x4():
     logger.info(f"Received float4x4 from Slang: {m_slang}")
     m_py_converted = from_slang(m_slang)
     _assert_mat4_close(m_py_converted, m_py)
+
+
+def test_int2():
+    v_py = glm.ivec2(1, -2)
+    logger.info(f"Created int2 in glm: {v_py}")
+    v_slang = test_module.test_int2(to_slang(v_py))
+    logger.info(f"Received int2 from Slang: {v_slang}")
+    v_py_converted = from_slang(v_slang)
+    _assert_ivec2_equal(v_py_converted, v_py)
+
+
+def test_int3():
+    v_py = glm.ivec3(1, -2, 3)
+    logger.info(f"Created int3 in glm: {v_py}")
+    v_slang = test_module.test_int3(to_slang(v_py))
+    logger.info(f"Received int3 from Slang: {v_slang}")
+    v_py_converted = from_slang(v_slang)
+    _assert_ivec3_equal(v_py_converted, v_py)
+
+
+def test_int4():
+    v_py = glm.ivec4(1, -2, 3, -4)
+    logger.info(f"Created int4 in glm: {v_py}")
+    v_slang = test_module.test_int4(to_slang(v_py))
+    logger.info(f"Received int4 from Slang: {v_slang}")
+    v_py_converted = from_slang(v_slang)
+    _assert_ivec4_equal(v_py_converted, v_py)
+
+
+def test_uint2():
+    v_py = glm.uvec2(1, 2)
+    logger.info(f"Created uint2 in glm: {v_py}")
+    v_slang = test_module.test_uint2(to_slang(v_py))
+    logger.info(f"Received uint2 from Slang: {v_slang}")
+    v_py_converted = from_slang(v_slang)
+    _assert_uvec2_equal(v_py_converted, v_py)
+
+
+def test_uint3():
+    v_py = glm.uvec3(1, 2, 3)
+    logger.info(f"Created uint3 in glm: {v_py}")
+    v_slang = test_module.test_uint3(to_slang(v_py))
+    logger.info(f"Received uint3 from Slang: {v_slang}")
+    v_py_converted = from_slang(v_slang)
+    _assert_uvec3_equal(v_py_converted, v_py)
+
+
+def test_uint4():
+    v_py = glm.uvec4(1, 2, 3, 4)
+    logger.info(f"Created uint4 in glm: {v_py}")
+    v_slang = test_module.test_uint4(to_slang(v_py))
+    logger.info(f"Received uint4 from Slang: {v_slang}")
+    v_py_converted = from_slang(v_slang)
+    _assert_uvec4_equal(v_py_converted, v_py)
